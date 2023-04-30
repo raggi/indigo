@@ -13,13 +13,14 @@ import (
 
 // TODO: WIP - turns out to be more complicated than i initially thought
 var streamCompareCmd = &cli.Command{
-	Name:  "diff-stream",
-	Flags: []cli.Flag{},
+	Name:      "diff-stream",
+	Flags:     []cli.Flag{},
+	ArgsUsage: `<hostA> <hostB>`,
 	Action: func(cctx *cli.Context) error {
 		d := websocket.DefaultDialer
 
-		hosta := cctx.Args().Get(0)
-		hostb := cctx.Args().Get(1)
+		hosta := mustGetArg(cctx, 0, "hostA")
+		hostb := mustGetArg(cctx, 1, "hostB")
 
 		cona, _, err := d.Dial(fmt.Sprintf("%s/xrpc/com.atproto.sync.subscribeRepos", hosta), http.Header{})
 		if err != nil {

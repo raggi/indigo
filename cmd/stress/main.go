@@ -170,8 +170,12 @@ var genRepoCmd = &cli.Command{
 			EnvVars: []string{"ATP_PDS_HOST"},
 		},
 	},
+	ArgsUsage: "<car-file-path>",
 	Action: func(cctx *cli.Context) error {
 		fname := cctx.Args().First()
+		if fname == "" {
+			return fmt.Errorf("must provide car file path")
+		}
 
 		l := cctx.Int("len")
 
