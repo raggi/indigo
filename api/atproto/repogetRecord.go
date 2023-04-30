@@ -27,7 +27,7 @@ type RepoGetRecord_Output struct {
 func RepoGetRecord(ctx context.Context, c *xrpc.Client, cid string, collection string, repo string, rkey string) (*RepoGetRecord_Output, error) {
 	var out RepoGetRecord_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cid":        cid,
 		"collection": collection,
 		"repo":       repo,

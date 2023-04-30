@@ -20,7 +20,7 @@ type ActorGetSuggestions_Output struct {
 func ActorGetSuggestions(ctx context.Context, c *xrpc.Client, cursor string, limit int64) (*ActorGetSuggestions_Output, error) {
 	var out ActorGetSuggestions_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor": cursor,
 		"limit":  limit,
 	}

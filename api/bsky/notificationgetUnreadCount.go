@@ -19,7 +19,7 @@ type NotificationGetUnreadCount_Output struct {
 func NotificationGetUnreadCount(ctx context.Context, c *xrpc.Client, seenAt string) (*NotificationGetUnreadCount_Output, error) {
 	var out NotificationGetUnreadCount_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"seenAt": seenAt,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "app.bsky.notification.getUnreadCount", params, nil, &out); err != nil {

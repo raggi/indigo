@@ -23,7 +23,7 @@ type LabelQueryLabels_Output struct {
 func LabelQueryLabels(ctx context.Context, c *xrpc.Client, cursor string, limit int64, sources []string, uriPatterns []string) (*LabelQueryLabels_Output, error) {
 	var out LabelQueryLabels_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor":      cursor,
 		"limit":       limit,
 		"sources":     sources,

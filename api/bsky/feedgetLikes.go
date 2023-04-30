@@ -29,7 +29,7 @@ type FeedGetLikes_Output struct {
 func FeedGetLikes(ctx context.Context, c *xrpc.Client, cid string, cursor string, limit int64, uri string) (*FeedGetLikes_Output, error) {
 	var out FeedGetLikes_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cid":    cid,
 		"cursor": cursor,
 		"limit":  limit,

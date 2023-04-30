@@ -44,7 +44,7 @@ const (
 	Procedure
 )
 
-func makeParams(p map[string]interface{}) string {
+func makeParams(p map[string]any) string {
 	var parts []string
 	for k, v := range p {
 		parts = append(parts, fmt.Sprintf("%s=%s", k, url.QueryEscape(fmt.Sprint(v))))
@@ -53,7 +53,7 @@ func makeParams(p map[string]interface{}) string {
 	return strings.Join(parts, "&")
 }
 
-func (c *Client) Do(ctx context.Context, kind XRPCRequestType, inpenc string, method string, params map[string]interface{}, bodyobj interface{}, out interface{}) error {
+func (c *Client) Do(ctx context.Context, kind XRPCRequestType, inpenc string, method string, params map[string]any, bodyobj any, out any) error {
 	var body io.Reader
 	if bodyobj != nil {
 		if rr, ok := bodyobj.(io.Reader); ok {
@@ -112,7 +112,7 @@ func (c *Client) Do(ctx context.Context, kind XRPCRequestType, inpenc string, me
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		var i interface{}
+		var i any
 		_ = json.NewDecoder(resp.Body).Decode(&i)
 		return fmt.Errorf("XRPC ERROR %d: %s", resp.StatusCode, resp.Status)
 	}

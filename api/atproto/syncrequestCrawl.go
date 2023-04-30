@@ -15,7 +15,7 @@ import (
 // hostname: Hostname of the service that is requesting to be crawled.
 func SyncRequestCrawl(ctx context.Context, c *xrpc.Client, hostname string) error {
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"hostname": hostname,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "com.atproto.sync.requestCrawl", params, nil, nil); err != nil {

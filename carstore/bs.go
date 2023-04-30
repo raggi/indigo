@@ -535,7 +535,7 @@ func (ds *DeltaSession) CloseWithRoot(ctx context.Context, root cid.Cid) ([]byte
 	// is definitely not it
 	var offset int64 = hnw
 	//brefs := make([]*blockRef, 0, len(ds.blks))
-	brefs := make([]map[string]interface{}, 0, len(ds.blks))
+	brefs := make([]map[string]any, 0, len(ds.blks))
 	for k, blk := range ds.blks {
 		nw, err := LdWrite(buf, k.Bytes(), blk.RawData())
 		if err != nil {
@@ -551,7 +551,7 @@ func (ds *DeltaSession) CloseWithRoot(ctx context.Context, root cid.Cid) ([]byte
 		*/
 		// adding things to the db by map is the only way to get gorm to not
 		// add the 'returning' clause, which costs a lot of time
-		brefs = append(brefs, map[string]interface{}{
+		brefs = append(brefs, map[string]any{
 			"cid":    util.DbCID{k},
 			"offset": offset,
 		})

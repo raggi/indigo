@@ -20,7 +20,7 @@ type FeedGetTimeline_Output struct {
 func FeedGetTimeline(ctx context.Context, c *xrpc.Client, algorithm string, cursor string, limit int64) (*FeedGetTimeline_Output, error) {
 	var out FeedGetTimeline_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"algorithm": algorithm,
 		"cursor":    cursor,
 		"limit":     limit,

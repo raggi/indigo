@@ -20,7 +20,7 @@ type FeedGetAuthorFeed_Output struct {
 func FeedGetAuthorFeed(ctx context.Context, c *xrpc.Client, actor string, cursor string, limit int64) (*FeedGetAuthorFeed_Output, error) {
 	var out FeedGetAuthorFeed_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"actor":  actor,
 		"cursor": cursor,
 		"limit":  limit,

@@ -45,7 +45,7 @@ func (fd *FakeDid) GetDocument(ctx context.Context, udid string) (*did.Document,
 
 		AlsoKnownAs: []string{"https://" + rec.Handle},
 
-		//Authentication []interface{} `json:"authentication"`
+		//Authentication []any `json:"authentication"`
 
 		VerificationMethod: []did.VerificationMethod{
 			did.VerificationMethod{

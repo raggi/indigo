@@ -19,7 +19,7 @@ type ServerGetAccountInviteCodes_Output struct {
 func ServerGetAccountInviteCodes(ctx context.Context, c *xrpc.Client, createAvailable bool, includeUsed bool) (*ServerGetAccountInviteCodes_Output, error) {
 	var out ServerGetAccountInviteCodes_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"createAvailable": createAvailable,
 		"includeUsed":     includeUsed,
 	}

@@ -36,7 +36,7 @@ type NotificationListNotifications_Output struct {
 func NotificationListNotifications(ctx context.Context, c *xrpc.Client, cursor string, limit int64, seenAt string) (*NotificationListNotifications_Output, error) {
 	var out NotificationListNotifications_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor": cursor,
 		"limit":  limit,
 		"seenAt": seenAt,

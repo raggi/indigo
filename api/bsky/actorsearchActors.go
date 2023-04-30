@@ -20,7 +20,7 @@ type ActorSearchActors_Output struct {
 func ActorSearchActors(ctx context.Context, c *xrpc.Client, cursor string, limit int64, term string) (*ActorSearchActors_Output, error) {
 	var out ActorSearchActors_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor": cursor,
 		"limit":  limit,
 		"term":   term,

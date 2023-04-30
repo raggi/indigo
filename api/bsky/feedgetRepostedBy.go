@@ -22,7 +22,7 @@ type FeedGetRepostedBy_Output struct {
 func FeedGetRepostedBy(ctx context.Context, c *xrpc.Client, cid string, cursor string, limit int64, uri string) (*FeedGetRepostedBy_Output, error) {
 	var out FeedGetRepostedBy_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cid":    cid,
 		"cursor": cursor,
 		"limit":  limit,

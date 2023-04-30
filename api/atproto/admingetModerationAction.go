@@ -14,7 +14,7 @@ import (
 func AdminGetModerationAction(ctx context.Context, c *xrpc.Client, id int64) (*AdminDefs_ActionViewDetail, error) {
 	var out AdminDefs_ActionViewDetail
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"id": id,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "com.atproto.admin.getModerationAction", params, nil, &out); err != nil {

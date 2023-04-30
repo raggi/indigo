@@ -18,7 +18,7 @@ import (
 func SyncGetBlob(ctx context.Context, c *xrpc.Client, cid string, did string) ([]byte, error) {
 	buf := new(bytes.Buffer)
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cid": cid,
 		"did": did,
 	}

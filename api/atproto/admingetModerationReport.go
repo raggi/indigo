@@ -14,7 +14,7 @@ import (
 func AdminGetModerationReport(ctx context.Context, c *xrpc.Client, id int64) (*AdminDefs_ReportViewDetail, error) {
 	var out AdminDefs_ReportViewDetail
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"id": id,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "com.atproto.admin.getModerationReport", params, nil, &out); err != nil {

@@ -15,7 +15,7 @@ import (
 // hostname: Hostname of the service that is notifying of update.
 func SyncNotifyOfUpdate(ctx context.Context, c *xrpc.Client, hostname string) error {
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"hostname": hostname,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "com.atproto.sync.notifyOfUpdate", params, nil, nil); err != nil {

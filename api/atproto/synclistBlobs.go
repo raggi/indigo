@@ -23,7 +23,7 @@ type SyncListBlobs_Output struct {
 func SyncListBlobs(ctx context.Context, c *xrpc.Client, did string, earliest string, latest string) (*SyncListBlobs_Output, error) {
 	var out SyncListBlobs_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"did":      did,
 		"earliest": earliest,
 		"latest":   latest,

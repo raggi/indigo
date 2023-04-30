@@ -26,7 +26,7 @@ type SyncListRepos_Repo struct {
 func SyncListRepos(ctx context.Context, c *xrpc.Client, cursor string, limit int64) (*SyncListRepos_Output, error) {
 	var out SyncListRepos_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor": cursor,
 		"limit":  limit,
 	}

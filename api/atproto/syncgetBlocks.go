@@ -17,7 +17,7 @@ import (
 func SyncGetBlocks(ctx context.Context, c *xrpc.Client, cids []string, did string) ([]byte, error) {
 	buf := new(bytes.Buffer)
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cids": cids,
 		"did":  did,
 	}

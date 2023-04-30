@@ -367,7 +367,7 @@ type RefreshToken struct {
 	Token string
 }
 
-func toTime(i interface{}) (time.Time, error) {
+func toTime(i any) (time.Time, error) {
 	ival, ok := i.(float64)
 	if !ok {
 		return time.Time{}, fmt.Errorf("invalid type for timestamp: %T", i)

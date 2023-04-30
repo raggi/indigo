@@ -21,7 +21,7 @@ type GraphGetFollowers_Output struct {
 func GraphGetFollowers(ctx context.Context, c *xrpc.Client, actor string, cursor string, limit int64) (*GraphGetFollowers_Output, error) {
 	var out GraphGetFollowers_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"actor":  actor,
 		"cursor": cursor,
 		"limit":  limit,

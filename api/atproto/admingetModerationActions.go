@@ -20,7 +20,7 @@ type AdminGetModerationActions_Output struct {
 func AdminGetModerationActions(ctx context.Context, c *xrpc.Client, cursor string, limit int64, subject string) (*AdminGetModerationActions_Output, error) {
 	var out AdminGetModerationActions_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor":  cursor,
 		"limit":   limit,
 		"subject": subject,

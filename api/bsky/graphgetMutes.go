@@ -20,7 +20,7 @@ type GraphGetMutes_Output struct {
 func GraphGetMutes(ctx context.Context, c *xrpc.Client, cursor string, limit int64) (*GraphGetMutes_Output, error) {
 	var out GraphGetMutes_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor": cursor,
 		"limit":  limit,
 	}

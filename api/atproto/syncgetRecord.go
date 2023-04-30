@@ -18,7 +18,7 @@ import (
 func SyncGetRecord(ctx context.Context, c *xrpc.Client, collection string, commit string, did string, rkey string) ([]byte, error) {
 	buf := new(bytes.Buffer)
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"collection": collection,
 		"commit":     commit,
 		"did":        did,

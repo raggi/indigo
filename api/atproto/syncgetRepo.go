@@ -19,7 +19,7 @@ import (
 func SyncGetRepo(ctx context.Context, c *xrpc.Client, did string, earliest string, latest string) ([]byte, error) {
 	buf := new(bytes.Buffer)
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"did":      did,
 		"earliest": earliest,
 		"latest":   latest,

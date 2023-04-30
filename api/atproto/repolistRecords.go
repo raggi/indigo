@@ -35,7 +35,7 @@ type RepoListRecords_Record struct {
 func RepoListRecords(ctx context.Context, c *xrpc.Client, collection string, cursor string, limit int64, repo string, reverse bool, rkeyEnd string, rkeyStart string) (*RepoListRecords_Output, error) {
 	var out RepoListRecords_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"collection": collection,
 		"cursor":     cursor,
 		"limit":      limit,

@@ -14,7 +14,7 @@ import (
 func AdminGetRecord(ctx context.Context, c *xrpc.Client, cid string, uri string) (*AdminDefs_RecordViewDetail, error) {
 	var out AdminDefs_RecordViewDetail
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cid": cid,
 		"uri": uri,
 	}

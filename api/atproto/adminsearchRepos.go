@@ -20,7 +20,7 @@ type AdminSearchRepos_Output struct {
 func AdminSearchRepos(ctx context.Context, c *xrpc.Client, cursor string, invitedBy string, limit int64, term string) (*AdminSearchRepos_Output, error) {
 	var out AdminSearchRepos_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"cursor":    cursor,
 		"invitedBy": invitedBy,
 		"limit":     limit,

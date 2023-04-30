@@ -19,7 +19,7 @@ type ActorSearchActorsTypeahead_Output struct {
 func ActorSearchActorsTypeahead(ctx context.Context, c *xrpc.Client, limit int64, term string) (*ActorSearchActorsTypeahead_Output, error) {
 	var out ActorSearchActorsTypeahead_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"limit": limit,
 		"term":  term,
 	}

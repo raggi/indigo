@@ -18,7 +18,7 @@ import (
 func SyncGetCheckout(ctx context.Context, c *xrpc.Client, commit string, did string) ([]byte, error) {
 	buf := new(bytes.Buffer)
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"commit": commit,
 		"did":    did,
 	}

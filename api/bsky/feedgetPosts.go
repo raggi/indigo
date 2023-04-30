@@ -19,7 +19,7 @@ type FeedGetPosts_Output struct {
 func FeedGetPosts(ctx context.Context, c *xrpc.Client, uris []string) (*FeedGetPosts_Output, error) {
 	var out FeedGetPosts_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"uris": uris,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "app.bsky.feed.getPosts", params, nil, &out); err != nil {

@@ -23,7 +23,7 @@ type SyncGetCommitPath_Output struct {
 func SyncGetCommitPath(ctx context.Context, c *xrpc.Client, did string, earliest string, latest string) (*SyncGetCommitPath_Output, error) {
 	var out SyncGetCommitPath_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"did":      did,
 		"earliest": earliest,
 		"latest":   latest,

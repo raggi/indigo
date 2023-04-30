@@ -26,7 +26,7 @@ type RepoDescribeRepo_Output struct {
 func RepoDescribeRepo(ctx context.Context, c *xrpc.Client, repo string) (*RepoDescribeRepo_Output, error) {
 	var out RepoDescribeRepo_Output
 
-	params := map[string]interface{}{
+	params := map[string]any{
 		"repo": repo,
 	}
 	if err := c.Do(ctx, xrpc.Query, "", "com.atproto.repo.describeRepo", params, nil, &out); err != nil {

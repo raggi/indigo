@@ -545,7 +545,7 @@ func (s *TypeSchema) WriteRPC(w io.Writer, typename string) error {
 	if s.Parameters != nil {
 		queryparams = "params"
 		pf(`
-	params := map[string]interface{}{
+	params := map[string]any{
 `)
 		if err := orderedMapIter(s.Parameters.Properties, func(name string, t *TypeSchema) error {
 			pf(`"%s": %s,
@@ -576,7 +576,7 @@ func (s *TypeSchema) WriteRPC(w io.Writer, typename string) error {
 	return nil
 }
 
-func doTemplate(w io.Writer, info interface{}, templ string) error {
+func doTemplate(w io.Writer, info any, templ string) error {
 	t := template.Must(template.New("").
 		Funcs(template.FuncMap{
 			"TODO": func(thing string) string {
@@ -1167,7 +1167,7 @@ func (ts *TypeSchema) writeTypeDefinition(name string, w io.Writer) error {
 		pf("type %s bool\n", name)
 	case "object":
 		if len(ts.Properties) == 0 {
-			pf("type %s interface{}\n", name)
+			pf("type %s any\n", name)
 			return nil
 		}
 
